@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`${styles.body}`}>
         <Header />
         <Loader />
-        <main className={`${styles.layout}`}>{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   )
