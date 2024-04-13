@@ -5,9 +5,6 @@
     --color-primary-gradiant-quarter: 236, 29, 36, 0.7;
     --color-primary-gradiant-half: 236, 29, 36, 0.4;
     --font-primary: 'RobotoCondensed', sans-serif;
+    --font-size-input: 16px;
 }
 
-
-.main-layout {
-    display:flex;
-}

@@ -1,10 +1,12 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import '@fortawesome/fontawesome-svg-core/styles.css'
 import '@/app/styles/reset.css';
 import '@/app/styles/fonts.css';
 import '@/app/styles/globals.css';
 import Header from '@/app/components/header';
 import Loader from '@/app/components/loader';
+import styles from '@/app/layout.module.css';
 
 
 export const metadata: Metadata = {
@@ -22,7 +24,7 @@ export default function RootLayout({
       <body>
         <Header />
         <Loader />
-        <main>{children}</main>
+        <main className={`${styles.layout}`}>{children}</main>
       </body>
     </html>
   )
