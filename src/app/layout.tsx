@@ -4,6 +4,8 @@ import '@/app/styles/reset.css';
 import '@/app/styles/fonts.css';
 import '@/app/styles/globals.css';
 import Header from '@/app/components/header';
+import Loader from '@/app/components/loader';
+
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,6 +21,7 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <Header />
+        <Loader />
         <main>{children}</main>
       </body>
     </html>
