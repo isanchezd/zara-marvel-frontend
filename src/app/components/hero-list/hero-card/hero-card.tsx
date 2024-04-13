@@ -1,14 +1,25 @@
-import React from 'react'
-import styles from './hero-card.module.css'
+import React from 'react';
+import Hero from '@/domain/Hero';
+import styles from './hero-card.module.css';
 
-export default function HeroCard() {
+interface HeroCardProps {
+  hero: Hero
+}
+
+export default function HeroCard({ hero }: HeroCardProps) {
     return (
-      <article className={`${styles.heroCard} ${styles.heroCardBg}`}>
-        <header className={`${styles.heroCardHeader}`}></header>
-        <section className={`${styles.heroCardDescription}`}>
-          <span className={`${styles.heroCardDescriptionText}`}>Hero Name</span>
-          <img src='/icon-heart-default.png' alt='add-favorite' />
+      <article className={`${styles.card} ${styles.cardBg}`}>
+        <header>
+          <img
+            className={`${styles.thumbnail}`}
+            src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
+            alt={`${hero.name} picture`}
+          />
+        </header>
+        <section className={`${styles.cardContent}`}>
+          <span className={`${styles.name}`}>{hero.name}</span>
+          <img className={`${styles.favorite}`} src='/icon-heart-default.png' alt='add-favorite' />
         </section>
-      </article>
+      </article> 
     )
 }

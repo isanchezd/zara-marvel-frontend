@@ -1,25 +1,39 @@
-.heroCard {
+.card {
     display:flex;
     flex-direction: column;
     width: 188px;
     height: 246px;
-}
-
-.heroCardBg {
     background-color: var(--color-dark);
 }
 
-.heroCardHeader {
+.thumbnail {
+    width:  188px;
+    height: 190px;
+    object-fit: cover;
 }
 
-.heroCardDescription {
-    border-top: 0.5rem solid red;
+.cardContent {
+    border-top: 0.5rem solid var(--color-primary);
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    padding: 10px;
 }
 
-.heroCardDescriptionText {
+.cardContent:hover {
+    background-color: var(--color-primary);
+    background-position: 50 0px;
+    transition: all .3s;
+}
+
+.name {
     color: var(--color-light);
     font-family: var(--font-primary);
+    font-size: 14px;    
+    text-transform: uppercase;
 }
+
+
+
