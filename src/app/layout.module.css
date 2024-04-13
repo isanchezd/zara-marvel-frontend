@@ -1,5 +1,17 @@
+.body {
+    background-color: var(--color-light);
+}
+
 .layout {
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 2rem;
+    gap: 2rem;
+}
+
+
+@media screen and (max-width: 768px) {
+    .layout {
+        padding: 1rem;
+    }
 }
