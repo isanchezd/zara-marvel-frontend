@@ -1,0 +1,22 @@
+.searchBarWrapper {
+    width: 100%;
+}
+
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem
+}
+
+.searchInput {
+    width: 100%;
+    border: none;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-input);
+    text-transform: uppercase;
+}
+
+.searchBarBottom {
+    height: 0.1rem;
+    background-color: var(--color-dark);
+}
