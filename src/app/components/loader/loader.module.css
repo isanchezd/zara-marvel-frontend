@@ -1,0 +1,22 @@
+.loader {
+    margin: 0px;
+    height: 0.3rem;
+    /* border: 0.2rem solid var(--color-borders); */
+    background: linear-gradient(to right, 
+    var(--color-primary) 0%, 
+    rgba(var(--color-primary-gradiant-quarter)) 25%, 
+    rgba(var(--color-primary-gradiant-half)) 50%, 
+    rgba(var(--color-primary-gradiant-quarter)) 75%, 
+    var(--color-primary) 100%);
+    background-size: 200% 100%;
+    animation: move 1s linear infinite;
+}
+
+@keyframes move {
+    from {
+        background-position: 200% 0;
+    }
+    to {
+        background-position: -100% 0;
+    }
+}
