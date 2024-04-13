@@ -1,0 +1,11 @@
+:root {
+    --color-light: #fff;
+    --color-dark: #000;
+    --color-borders: #EC1D24;
+    --font-primary: 'RobotoCondensed', sans-serif;
+}
+
+
+.main-layout {
+    display:flex;
+}
