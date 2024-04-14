@@ -12,7 +12,7 @@ export default async function Home() {
 
   return (
     <section className={`${styles.heroesLayout}`}>
-      <SearchBar />
+      <SearchBar results={heroes.length}/>
       <HeroList heroes={heroes}/>
     </section>
   )

@@ -7,8 +7,12 @@ const PLACEHOLDER = 'SEARCH A CHARACTER...';
 
 library.add(faMagnifyingGlass)
 
+interface SearchBarProps {
+  results: number
+}
 
-export default function SearchBar() {
+
+export default function SearchBar({results}: SearchBarProps) {
     return (
       <section className={`${styles.searchBarWrapper}`}>
         <div>
@@ -30,7 +34,7 @@ export default function SearchBar() {
           <hr className={styles.searchBarBottom} />
         </div>
         <div>
-          <h2 className={`${styles.counterTitle}`}>0 Results</h2>
+          <h2 className={`${styles.counterTitle}`}>{results} Results</h2>
         </div>
       </section>
     )
