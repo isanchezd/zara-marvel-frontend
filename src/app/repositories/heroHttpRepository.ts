@@ -20,7 +20,7 @@ async function getHeroes(name?: string): Promise<Hero[]> {
     const publicKey = process.env.NEXT_PUBLIC_API_PUBLIC_KEY
     const privateKey = process.env.NEXT_PUBLIC_API_PRIVATE_KEY
     const hash = md5(`${timestamp}${privateKey}${publicKey}`)
-    const nameQueryParam = name ? `&name=${name}` : '';
+    const nameQueryParam = name ? `&nameStartsWith=${name}` : '';
     const queryString = `ts=${timestamp}&apikey=${publicKey}&limit=${LIMIT_RESULTS}&hash=${hash}${nameQueryParam}`
     const endpoint = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_PUBLIC_PATH}/characters?${queryString}`
 
