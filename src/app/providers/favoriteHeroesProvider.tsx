@@ -13,7 +13,7 @@ export default function FavoriteHeroProvider({
 }: LoadingProviderProps) {
   const SESSION_KEY = 'zaraMarvel';
   const [favorites, setFavorites] = useState<FavoriteHero[]>(() => {
-    const sessionData = sessionStorage.getItem(SESSION_KEY);
+    const sessionData = localStorage.getItem(SESSION_KEY)
 
     if (!sessionData) {
       return []
