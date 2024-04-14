@@ -1,10 +1,13 @@
-.row {
-    display:flex;
-    flex-direction: row;
+.card {
+    width: 188px;
+    height: 246px;
+    display: flex;
+    flex-direction: column;
 }
 
-.col {
-    display: flex;
-    flex-direction: row;
+.thumbnail {
+    width:  188px;
+    height: auto;
+    object-fit: cover;
 }
 

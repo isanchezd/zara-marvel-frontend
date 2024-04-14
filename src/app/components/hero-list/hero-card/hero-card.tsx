@@ -27,11 +27,11 @@ export default function HeroCard({ hero }: HeroCardProps) {
     }
 
     return (
-      <article className={`${styles.card}`}>
+      <article className={`card ${styles.heroCard}`}>
         <Link href={`/hero/${hero.id}`}>
           <header>
             <img
-              className={`${styles.thumbnail}`}
+              className={`thumbnail`}
               src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
               alt={`${hero.name} picture`}
             />
