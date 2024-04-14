@@ -5,6 +5,7 @@ import '@/app/styles/globals.css';
 import Header from '@/app/components/header';
 import Loader from '@/app/components/loader';
 import styles from '@/app/layout.module.css';
+import IsLoadingProvider from '@/app/providers/loadingProvider';
 
 
 export const metadata: Metadata = {
@@ -21,8 +22,10 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${styles.body}`}>
         <Header />
-        <Loader />
-        <main>{children}</main>
+        <IsLoadingProvider>
+          <Loader />
+          <main>{children}</main>
+        </IsLoadingProvider>
       </body>
     </html>
   )
