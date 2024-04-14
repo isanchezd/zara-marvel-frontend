@@ -27,6 +27,12 @@
     align-items: center;
 }
 
+.thumbnail {
+    width:320px;
+    height: 320px;
+    object-fit: cover;
+}
+
 .detail {
     display:flex;
     flex-direction: row;
@@ -46,7 +52,7 @@
 }
 
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
     .heroDetail {
         display:flex;
         flex-direction: column;
@@ -57,5 +63,11 @@
         gap:24px;
         padding: 24px;
     }
+
+    .thumbnail {
+        width:100%;
+        height: auto;
+    }
+
 }
 

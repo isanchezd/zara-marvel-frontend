@@ -1,0 +1,81 @@
+
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.heroBannerLayout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px, 48px, 0px, 48px;
+    width: 100%;
+    background-color: var(--color-dark);
+}
+
+.bannerText {
+    color: var(--color-light);
+}
+
+
+.comicsSection {
+    width: 960px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    gap:2rem;
+}
+
+.comicsHead {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.comics {
+    min-height: 400px;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    overflow-x: scroll;
+    scrollbar-color: var(--color-primary) var(--color-light);
+    overflow-y: hidden;
+}
+
+.comic {
+    height: 340px;
+    gap: 20px;
+}
+
+.comic {
+    font-size: 15px;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--font-primary);
+}
+
+.date {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font-primary);
+}
+
+
+@media screen and (max-width: 960px) {
+    .comicsSection {
+        width: 90%;
+    }
+    
+}
+
+
+
+
+

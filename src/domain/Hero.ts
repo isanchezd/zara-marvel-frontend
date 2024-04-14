@@ -1,7 +1,4 @@
-interface Thumbnail {
-    path: string,
-    extension: string
-}
+import Thumbnail from "./Thumbnail";
 
 export default interface Hero {
     id: number,

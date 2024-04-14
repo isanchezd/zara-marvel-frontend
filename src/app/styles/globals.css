@@ -12,3 +12,7 @@
     --font-size-input: 16px;
 }
 
+
+a {
+    text-decoration: none;
+}
