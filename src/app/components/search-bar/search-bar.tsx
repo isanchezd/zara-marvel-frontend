@@ -10,23 +10,28 @@ library.add(faMagnifyingGlass)
 
 export default function SearchBar() {
     return (
-      <div className={`${styles.searchBarWrapper}`}>
-        <div className={`${styles.searchBar}`}>
-          <label htmlFor='search'>
-            <i>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </i>
-          </label>
-          <input
-            id='search'
-            name='search'
-            className={`${styles.searchInput}`}
-            type='text'
-            placeholder={PLACEHOLDER}
-          />
-        </div>
+      <section className={`${styles.searchBarWrapper}`}>
+        <div>
+          <div className={`${styles.searchBar}`}>
+            <label htmlFor='search'>
+              <i>
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              </i>
+            </label>
+            <input
+              id='search'
+              name='search'
+              className={`${styles.searchInput}`}
+              type='text'
+              placeholder={PLACEHOLDER}
+            />
+          </div>
 
-        <hr className={styles.searchBarBottom} />
-      </div>
+          <hr className={styles.searchBarBottom} />
+        </div>
+        <div>
+          <h2 className={`${styles.counterTitle}`}>0 Results</h2>
+        </div>
+      </section>
     )
 }
