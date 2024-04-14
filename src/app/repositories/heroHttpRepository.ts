@@ -15,12 +15,13 @@ interface HeroesResponse {
 
 const LIMIT_RESULTS = 50;
 
-async function getHeroes(): Promise<Hero[]> {
+async function getHeroes(name?: string): Promise<Hero[]> {
     const timestamp = (Date.now() / 1000 | 0)
     const publicKey = process.env.NEXT_PUBLIC_API_PUBLIC_KEY
     const privateKey = process.env.NEXT_PUBLIC_API_PRIVATE_KEY
     const hash = md5(`${timestamp}${privateKey}${publicKey}`)
-    const queryString = `ts=${timestamp}&apikey=${publicKey}&limit=${LIMIT_RESULTS}&hash=${hash}`
+    const nameQueryParam = name ? `&name=${name}` : '';
+    const queryString = `ts=${timestamp}&apikey=${publicKey}&limit=${LIMIT_RESULTS}&hash=${hash}${nameQueryParam}`
     const endpoint = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_PUBLIC_PATH}/characters?${queryString}`
 
     console.log(endpoint)
