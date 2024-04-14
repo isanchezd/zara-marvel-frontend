@@ -1,0 +1,17 @@
+
+.comics {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    overflow-x: scroll;
+    scrollbar-color: var(--color-primary) var(--color-light);
+    overflow-y: hidden;
+}
+
+.comic {
+    height: auto;
+    gap: 10px;
+}
+
+
+

@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import styles from './hero-banner.module.css'
 import FavoriteHero from '@/app/models/FavoriteHero';
@@ -8,17 +10,17 @@ interface HeroBannerProps {
 
 export default function HeroBanner({ hero }: HeroBannerProps) {
   return (
-    <div className={`${styles.heroDetail}`}>
-      <div className={`${styles.portrait}`}>
+    <div className={`container ${styles.banner}`}>
+      <div className='row justify-center align-center'>
         <img
           className={`${styles.thumbnail}`}
           src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
           alt={`${hero.name} picture`}
         />
       </div>
-      <div className={`${styles.detailWrapper}`}>
-        <div className={`${styles.detail}`}>
-          <h1 className={`${styles.title}`}>{hero.name}</h1>
+      <div className={`col justify-center p-2 gap`}>
+        <div className='row space-between'>
+          <h1>{hero.name}</h1>
           {hero.isFavorite ? (
             <i>
               <svg
@@ -53,7 +55,7 @@ export default function HeroBanner({ hero }: HeroBannerProps) {
           )}
         </div>
         <div>
-          <p className={`${styles.description}`}>{hero.description}</p>
+          <p>{hero.description}</p>
         </div>
       </div>
     </div>

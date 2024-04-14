@@ -47,7 +47,7 @@ export default function SearchBar({results, search, setSearch}: SearchBarProps) 
           <hr className={styles.bar} />
         </div>
         <div>
-          <h2 className='text-dark'>{results} Results</h2>
+          <h3 className='text-dark'>{results} Results</h3>
         </div>
       </section>
     )
