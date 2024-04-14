@@ -31,13 +31,13 @@ export default function HeroCard({ hero }: HeroCardProps) {
         <Link href={`/hero/${hero.id}`}>
           <header>
             <img
-              className={`thumbnail`}
+              className={`thumbnail ${styles.cardThumbnail}`}
               src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
               alt={`${hero.name} picture`}
             />
           </header>
           <section className={`${styles.cardContent}`}>
-            <span className={`${styles.name}`}>{hero.name}</span>
+            <span>{hero.name}</span>
             {hero.isFavorite ? (
               <i onClick={onClickFavorite}>
                 <svg

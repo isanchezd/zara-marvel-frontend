@@ -6,12 +6,12 @@ import HeroBanner from '@/app/hero/[id]/components/hero-banner';
 import getHero from '@/useCases/getHero';
 import heroRepository from '@/app/repositories/heroHttpRepository';
 import useLoading from '@/app/hooks/useLoading';
-import styles from './page.module.css';
 import FavoriteHero from '@/app/models/FavoriteHero';
 import comicRepository from '@/app/repositories/comicHttpRepository';
 import Comic from '@/domain/Comic';
+import ComicsList from './components/comics-list';
 
-export default function HeroDetailPage({ params }: { params: { id: number } }) {
+export default function HeroDetailPage() {
   const { isLoading, setIsLoading } = useLoading()
   const pathname = usePathname()
   const id = Number(pathname.split('/')[2])
@@ -35,34 +35,21 @@ export default function HeroDetailPage({ params }: { params: { id: number } }) {
     fetchHero()
   }, [])
 
-  const getYearFromModifiedDate = (dateStr: string) => new Date(dateStr).getFullYear()
 
   return (
     <section>
-      {!isLoading ? (
-        <div className={`${styles.layout}`}>
-          <div className={`${styles.heroBannerLayout}`}>
+      { !isLoading ? (
+        <div className='col justify-center align-center gap'>
+          <div
+            className={`full-container col justify-center align-center bg-dark`}
+          >
             <HeroBanner hero={hero} />
           </div>
-          <div className={`${styles.comicsSection}`}>
+          <div className={`container col justify-center gap`}>
             <div>
-              <h2 className={`${styles.comicsHead}`}>Comics</h2>
+              <h2 className='text-dark'>Comics</h2>
             </div>
-            <div className={`${styles.comics}`}>
-              {comics.map((comic) => (
-                <article key={comic.id} className={`card ${styles.comic}`}>
-                  <img
-                    className='thumbnail'
-                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                    alt={`${comic.title} comic`}
-                  />
-                  <h3 className={`${styles.title}`}>{comic.title}</h3>
-                  <span className={`${styles.date}`}>
-                    {getYearFromModifiedDate(comic.modified)}
-                  </span>
-                </article>
-              ))}
-            </div>
+            <ComicsList comics={comics}/>
           </div>
         </div>
       ) : null}
