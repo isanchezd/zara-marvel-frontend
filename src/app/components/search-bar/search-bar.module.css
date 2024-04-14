@@ -1,28 +1,11 @@
-.searchBarWrapper {
+.input {
     width: 100%;
+    border: 0px solid var(--color-light);
+    color: var(--color-dark);
+    outline: none;
 }
 
-.searchBar {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem
-}
-
-.searchInput {
-    width: 100%;
-    border: none;
-    font-family: var(--font-primary);
-    font-size: var(--font-size-input);
-    text-transform: uppercase;
-}
-
-.searchBarBottom {
+.bar {
     height: 0.1rem;
     background-color: var(--color-dark);
-}
-
-.counterTitle {
-    font-family: var(--font-primary);
-    font-size: 12px;
-    text-transform: uppercase;
 }

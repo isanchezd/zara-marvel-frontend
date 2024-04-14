@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import SearchBar from '@/app/components/search-bar';
 import HeroList from '@/app/components/hero-list';
-import styles from '@/app/page.module.css';
 import heroRepository from '@/app/repositories/heroHttpRepository';
 import getHeroes from '@/useCases/getHeroes';
 import Hero from '@/domain/Hero';
@@ -32,8 +31,7 @@ export default function Home() {
 
 
   return (
-
-    <section className={`${styles.heroesLayout}`}>
+    <section className={`full-container col p gap`}>
       <SearchBar results={heroes.length} search={search} setSearch={setSearch} />
       {!isLoading ? <HeroList heroes={heroes}/> : null}
     </section>

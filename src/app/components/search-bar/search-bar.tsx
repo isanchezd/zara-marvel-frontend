@@ -25,9 +25,9 @@ export default function SearchBar({results, search, setSearch}: SearchBarProps) 
     }
 
     return (
-      <section className={`${styles.searchBarWrapper}`}>
+      <section>
         <div>
-          <div className={`${styles.searchBar}`}>
+          <div className='row gap'>
             <label htmlFor='search'>
               <i>
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -36,7 +36,7 @@ export default function SearchBar({results, search, setSearch}: SearchBarProps) 
             <input
               id='search'
               name='search'
-              className={`${styles.searchInput}`}
+              className={`${styles.input}`}
               type='text'
               placeholder={PLACEHOLDER}
               value={search}
@@ -44,10 +44,10 @@ export default function SearchBar({results, search, setSearch}: SearchBarProps) 
             />
           </div>
 
-          <hr className={styles.searchBarBottom} />
+          <hr className={styles.bar} />
         </div>
         <div>
-          <h2 className={`${styles.counterTitle}`}>{results} Results</h2>
+          <h2 className='text-dark'>{results} Results</h2>
         </div>
       </section>
     )

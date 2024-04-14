@@ -1,13 +1,12 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import '@fortawesome/fontawesome-svg-core/styles.css'
-import '@/app/styles/globals.css';
 import Header from '@/app/components/header';
 import Loader from '@/app/components/loader';
-import styles from '@/app/layout.module.css';
 import IsLoadingProvider from '@/app/providers/loadingProvider';
 import FavoriteHeroProvider from '@/app/providers/favoriteHeroesProvider';
-
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import '@/app/styles/globals.css';
+import '@/app/styles/layout.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${styles.body}`}>
+      <body>
         <FavoriteHeroProvider>
           <Header />
           <IsLoadingProvider>

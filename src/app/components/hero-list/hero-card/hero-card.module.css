@@ -1,37 +1,36 @@
 .heroCard {
     background-color: var(--color-dark);
-    clip-path: polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%)
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%);
+    height: 250px;
 }
 
-.heroCard:hover > .cardContent {
+.heroCard:hover .cardContent {
     background-color: var(--color-primary);
     background-position: 50 0px;
     transition: all .3s;
 }
 
 .heroCard:hover .cardContent .iconIsFavorite {
-    fill: var(--color-light)
+    fill: var(--color-light);
 }
 
 .heroCard:hover .cardContent .iconNoneIsFavorite {
-    fill: var(--color-dark)
+    fill: var(--color-dark);
+}
+
+.cardThumbnail {
+    height: 190px;
 }
 
 .cardContent {
     border-top: 0.3rem solid var(--color-primary);
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
-    padding: 10px;
-}
-
-.name {
-    color: var(--color-light);
-    font-family: var(--font-primary);
-    font-size: 14px;    
-    text-transform: uppercase;
+    padding: 0px 10px 0px 20px;
+    height: 56px;
 }
 
 .iconIsFavorite {

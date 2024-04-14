@@ -1,7 +1,6 @@
 .loader {
     margin: 0px;
     height: 0.3rem;
-    /* border: 0.2rem solid var(--color-borders); */
     background: linear-gradient(to right, 
     var(--color-primary) 0%, 
     rgba(var(--color-primary-gradiant-quarter)) 25%, 

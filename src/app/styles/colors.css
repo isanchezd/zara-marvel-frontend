@@ -1,0 +1,23 @@
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-dark {
+    background-color: var(--color-dark);
+}
+
+.bg-light {
+    background-color: var(--color-light);
+}
+
+.text-light {
+    color: var(--color-light);
+}
+
+.text-dark {
+    color: var(--color-dark);
+}
+
+.svg-primary {
+    fill: var(--color-primary);
+}
