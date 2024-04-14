@@ -9,16 +9,3 @@
 .headerBg {
     background-color: var(--color-dark);
 }
-
-.favorites {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.counterText{
-    color: var(--color-light);
-    font-family: var(--font-primary);
-}
-

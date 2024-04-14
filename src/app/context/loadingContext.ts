@@ -1,10 +1,10 @@
 import React, { createContext } from 'react';
 
-interface LoadingContextType {
+interface LoadingContext {
     isLoading: boolean
     setIsLoading: (loading: boolean) => void
 };
 
-const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
+const LoadingContext = createContext<LoadingContext | undefined>(undefined);
 
 export default LoadingContext;
