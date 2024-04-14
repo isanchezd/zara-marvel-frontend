@@ -1,0 +1,39 @@
+
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.heroBannerLayout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px, 48px, 0px, 48px;
+    width: 100%;
+    background-color: var(--color-dark);
+}
+
+.bannerText {
+    color: var(--color-light);
+}
+
+
+.comicsSection {
+    width:960px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    gap:2rem;
+}
+
+.comicsHead {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
