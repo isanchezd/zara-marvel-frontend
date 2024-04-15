@@ -15,7 +15,7 @@ export default function Home() {
         search={search}
         setSearch={setSearch}
       />
-      {!isLoading ? <HeroList heroes={heroes} /> : null}
+      {!isLoading ? <HeroList heroes={[...heroes]} /> : null}
     </section>
   )
 }

@@ -1,3 +1,4 @@
+import heroFactory from "@/app/factory/heroFactory";
 import useLoading from "@/app/hooks/useLoading";
 import comicRepository from "@/app/repositories/comicHttpRepository";
 import heroRepository from "@/app/repositories/heroHttpRepository";
@@ -20,8 +21,9 @@ export default function useGetHero () {
         const fetchHero = async () => {
             try {
                 const data = await getHero(id, heroRepository, comicRepository);
-                setHero({ ...data.hero, isFavorite: false });
-                setComics([...data.comics]);
+                const { hero, comics} = data
+                setHero(heroFactory(hero.id, hero.name, hero.description, hero.thumbnail, false));
+                setComics([...comics]);
             } catch (error) {
                 console.error('Failed to fetch hero data:', error);
             } finally {
