@@ -3,10 +3,17 @@ import type { Metadata } from 'next';
 import Header from '@/app/components/header';
 import Loader from '@/app/components/loader';
 import IsLoadingProvider from '@/app/providers/loadingProvider';
-import FavoriteHeroProvider from '@/app/providers/favoriteHeroesProvider';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '@/app/styles/globals.css';
-import '@/app/styles/layout.css';
+import dynamic from 'next/dynamic';
+
+
+const FavoriteHeroProvider = dynamic(
+  () => import('../app/providers/favoriteHeroesProvider'),
+  {
+    ssr: false,
+  }
+)
 
 export const metadata: Metadata = {
   title: 'Create Next App',
