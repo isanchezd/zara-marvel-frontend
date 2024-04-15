@@ -26,7 +26,7 @@ export default function HeroBanner({ hero }: HeroBannerProps) {
         />
       </div>
       <div className={`col justify-center p-2 gap`}>
-        <div className='row space-between'>
+        <div className='row space-between align-center gap'>
           <h1>{heroState.name}</h1>
           {heroState.isFavorite ? (
             <i onClick={onClickToogleFavorite}>

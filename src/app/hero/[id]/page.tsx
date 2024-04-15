@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import HeroBanner from '@/app/hero/[id]/components/hero-banner';
 import getHero from '@/useCases/getHero';
@@ -10,6 +10,7 @@ import FavoriteHero from '@/app/models/FavoriteHero';
 import comicRepository from '@/app/repositories/comicHttpRepository';
 import Comic from '@/domain/Comic';
 import ComicsList from './components/comics-list';
+
 
 export default function HeroDetailPage() {
   const { isLoading, setIsLoading } = useLoading()
@@ -23,7 +24,6 @@ export default function HeroDetailPage() {
     const fetchHero = async () => {
       try {
         const data = await getHero(id, heroRepository, comicRepository)
-        console.log(data)
         setHero({ ...data.hero, isFavorite: false })
         setComics([...data.comics])
         setIsLoading(false)
@@ -31,9 +31,8 @@ export default function HeroDetailPage() {
         console.log(error)
       }
     }
-
     fetchHero()
-  }, [])
+  }, [id])
 
 
   return (
