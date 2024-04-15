@@ -1,43 +1,16 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
-import HeroBanner from '@/app/hero/[id]/components/hero-banner';
-import getHero from '@/useCases/getHero';
-import heroRepository from '@/app/repositories/heroHttpRepository';
-import useLoading from '@/app/hooks/useLoading';
-import FavoriteHero from '@/app/models/FavoriteHero';
-import comicRepository from '@/app/repositories/comicHttpRepository';
-import Comic from '@/domain/Comic';
-import ComicsList from './components/comics-list';
-
+import React from 'react'
+import HeroBanner from '@/app/hero/[id]/components/hero-banner'
+import ComicsList from './components/comics-list'
+import useGetHero from './hooks/useGetHero'
 
 export default function HeroDetailPage() {
-  const { isLoading, setIsLoading } = useLoading()
-  const pathname = usePathname()
-  const id = Number(pathname.split('/')[2])
-  const [hero, setHero] = useState<FavoriteHero>({} as FavoriteHero)
-  const [comics, setComics] = useState<Comic[]>([])
-
-  useEffect(() => {
-    setIsLoading(true)
-    const fetchHero = async () => {
-      try {
-        const data = await getHero(id, heroRepository, comicRepository)
-        setHero({ ...data.hero, isFavorite: false })
-        setComics([...data.comics])
-        setIsLoading(false)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchHero()
-  }, [id])
-
+  const { hero, comics, isLoading } = useGetHero()
 
   return (
     <section>
-      { !isLoading ? (
+      {!isLoading && hero.id ? (
         <div className='col justify-center align-center gap'>
           <div
             className={`full-container col justify-center align-center bg-dark`}
@@ -48,7 +21,7 @@ export default function HeroDetailPage() {
             <div>
               <h2 className='text-dark'>Comics</h2>
             </div>
-            <ComicsList comics={comics}/>
+            <ComicsList comics={comics} />
           </div>
         </div>
       ) : null}

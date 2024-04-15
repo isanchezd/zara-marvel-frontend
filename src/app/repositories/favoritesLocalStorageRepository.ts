@@ -1,9 +1,10 @@
-import FavoriteHero from '@/app/models/FavoriteHero';
+import FavoritesRepository from '@/domain/FavoritesRepository';
+import Hero from '@/domain/Hero';
 
 const SESSION_KEY = 'zaraMarvel';
 
 
-function setFavorites(favorites: FavoriteHero[]): void {
+function setFavorites(favorites: Hero[]): void {
     localStorage.setItem(
         SESSION_KEY,
         JSON.stringify({
@@ -12,7 +13,7 @@ function setFavorites(favorites: FavoriteHero[]): void {
     )
 }
 
-function getFavorites(): FavoriteHero[] {
+function getFavorites(): Hero[] {
     const sessionData = localStorage.getItem(SESSION_KEY)
 
     if (!sessionData) {
@@ -23,6 +24,6 @@ function getFavorites(): FavoriteHero[] {
     return parsedSessionData.favoriteHeroes;
 }
 
-const favoritesRepository = { setFavorites, getFavorites }
+const favoritesRepository: FavoritesRepository = { setFavorites, getFavorites }
 
 export default favoritesRepository

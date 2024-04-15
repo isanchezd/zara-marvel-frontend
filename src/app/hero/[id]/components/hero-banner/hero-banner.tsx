@@ -2,11 +2,11 @@
 
 import React from 'react'
 import styles from './hero-banner.module.css'
-import FavoriteHero from '@/app/models/FavoriteHero'
 import useAddFavoriteHero from '@/app/hooks/useAddFavorites'
+import Hero from '@/domain/Hero'
 
 interface HeroBannerProps {
-  hero: FavoriteHero
+  hero: Hero
 }
 
 export default function HeroBanner({ hero }: HeroBannerProps) {
