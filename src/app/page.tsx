@@ -1,39 +1,21 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
-import SearchBar from '@/app/components/search-bar';
-import HeroList from '@/app/components/hero-list';
-import heroRepository from '@/app/repositories/heroHttpRepository';
-import getHeroes from '@/useCases/getHeroes';
-import Hero from '@/domain/Hero';
-import useLoading from './hooks/useLoading';
-
-
+import React from 'react'
+import SearchBar from '@/app/components/search-bar'
+import HeroList from '@/app/components/hero-list'
+import useSearchHeroes from './hooks/useSearchHeroes'
 
 export default function Home() {
-  const { isLoading, setIsLoading } = useLoading()
-  const [search, setSearch] = useState<string>('')
-  const [heroes, setHeroes] = useState<Hero[]>([])
-
-  useEffect(() => {
-    setIsLoading(true)
-    const fetchHeroes = async () => {
-      try {
-        const data = await getHeroes(heroRepository, search)
-        setHeroes(data)
-        setIsLoading(false)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchHeroes()
-  }, [search])
-
+  const { heroes, search, setSearch, isLoading } = useSearchHeroes()
 
   return (
     <section className={`col p gap`}>
-      <SearchBar results={heroes.length} search={search} setSearch={setSearch} />
-      {!isLoading ? <HeroList heroes={heroes}/> : null}
+      <SearchBar
+        results={heroes.length}
+        search={search}
+        setSearch={setSearch}
+      />
+      {!isLoading ? <HeroList heroes={heroes} /> : null}
     </section>
   )
 }

@@ -4,5 +4,6 @@ export default interface Hero {
     id: number,
     name: string,
     description: string,
-    thumbnail: Thumbnail
+    thumbnail: Thumbnail,
+    isFavorite?: boolean
 }

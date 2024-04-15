@@ -1,9 +1,9 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import useFavoriteHeroes from './useFavoriteHeroes';
-import FavoriteHero from '../models/FavoriteHero';
+import Hero from '@/domain/Hero';
 
-const useAddFavoriteHero = (hero: FavoriteHero): [FavoriteHero, Dispatch<SetStateAction<FavoriteHero>>] => {
-    const [heroState, setHeroState] = useState<FavoriteHero>(hero);
+const useAddFavoriteHero = (hero: Hero): [Hero, Dispatch<SetStateAction<Hero>>] => {
+    const [heroState, setHeroState] = useState<Hero>(hero);
     const { favorites, setFavorites } = useFavoriteHeroes();
 
     useEffect(() => {

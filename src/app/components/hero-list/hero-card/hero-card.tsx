@@ -2,17 +2,15 @@
 
 import React from 'react'
 import styles from './hero-card.module.css'
-import FavoriteHero from '@/app/models/FavoriteHero'
 import Link from 'next/link'
 import useAddFavoriteHero from '@/app/hooks/useAddFavorites'
-import useLoading from '@/app/hooks/useLoading'
+import Hero from '@/domain/Hero'
 
 interface HeroCardProps {
-  hero: FavoriteHero
+  hero: Hero
 }
 
 export default function HeroCard({ hero }: HeroCardProps) {
-  const { setIsLoading } = useLoading()
   const [heroState, setHeroState] = useAddFavoriteHero(hero)
 
   const onClickToogleFavorite = (event: React.FormEvent) => {
@@ -20,13 +18,10 @@ export default function HeroCard({ hero }: HeroCardProps) {
     setHeroState({ ...hero, isFavorite: !hero.isFavorite })
   }
 
-  const onClickLink = (event: any) => {
-    setIsLoading(true)
-  }
 
   return (
     <article className={`card ${styles.heroCard}`}>
-      <Link href={`/hero/${heroState.id}`} onClick={onClickLink} >
+      <Link href={`/hero/${heroState.id}`} >
         <header>
           <img
             className={`thumbnail ${styles.cardThumbnail}`}

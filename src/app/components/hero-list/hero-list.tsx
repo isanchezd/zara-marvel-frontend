@@ -4,7 +4,6 @@ import useFavoriteHeroes from '@/app/hooks/useFavoriteHeroes';
 import HeroCard from './hero-card/hero-card';
 import styles from './hero-list.module.css';
 import Hero from '@/domain/Hero';
-import FavoriteHero from '@/app/models/FavoriteHero';
 
 interface HeroListProps {
   heroes: Hero[]
@@ -29,7 +28,7 @@ export default function HeroList({ heroes }: HeroListProps) {
   )
 }
 
-function isHeroInFavorites(favorites: FavoriteHero[], hero: Hero) {
+function isHeroInFavorites(favorites: Hero[], hero: Hero) {
   return favorites.some((favorite) => {
     return favorite.id === hero.id
   })
