@@ -1,8 +1,9 @@
 'use client'
 
-import React, { ReactNode, useEffect, useState } from 'react'
-import FavoriteHeroesContext from '@/app/context/favoriteHeroesContext'
-import FavoriteHero from '@/app/models/FavoriteHero'
+import React, { ReactNode, useEffect, useState } from 'react';
+import FavoriteHeroesContext from '@/app/context/favoriteHeroesContext';
+import FavoriteHero from '@/app/models/FavoriteHero';
+import favoritesRepository from '../repositories/favoritesLocalStorageRepository';
 
 interface LoadingProviderProps {
   children: ReactNode
@@ -11,25 +12,10 @@ interface LoadingProviderProps {
 export default function FavoriteHeroProvider({
   children,
 }: LoadingProviderProps) {
-  const SESSION_KEY = 'zaraMarvel';
-  const [favorites, setFavorites] = useState<FavoriteHero[]>(() => {
-    const sessionData = localStorage.getItem(SESSION_KEY)
-
-    if (!sessionData) {
-      return []
-    }
-
-    const parsedSessionData = JSON.parse(sessionData);
-    return parsedSessionData.favoriteHeroes;
-  })
+  const [favorites, setFavorites] = useState<FavoriteHero[]>(() => favoritesRepository.getFavorites())
 
   useEffect(() => {
-    localStorage.setItem(
-      SESSION_KEY,
-      JSON.stringify({
-        favoriteHeroes: [...favorites],
-      })
-    )
+    favoritesRepository.setFavorites(favorites)
   }, [favorites])
 
   return (

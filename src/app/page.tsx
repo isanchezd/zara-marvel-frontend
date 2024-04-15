@@ -31,7 +31,7 @@ export default function Home() {
 
 
   return (
-    <section className={`full-container col p gap`}>
+    <section className={`col p gap`}>
       <SearchBar results={heroes.length} search={search} setSearch={setSearch} />
       {!isLoading ? <HeroList heroes={heroes}/> : null}
     </section>
