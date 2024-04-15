@@ -4,6 +4,7 @@ import useFavoriteHeroes from '@/app/hooks/useFavoriteHeroes';
 import HeroCard from './hero-card/hero-card';
 import styles from './hero-list.module.css';
 import Hero from '@/domain/Hero';
+import useHeroesFactory from '@/app/hooks/useHeroesFactory'
 
 interface HeroListProps {
   heroes: Hero[]
@@ -11,25 +12,13 @@ interface HeroListProps {
 
 export default function HeroList({ heroes }: HeroListProps) {
   const { favorites } = useFavoriteHeroes()
+  const newHeroes = useHeroesFactory(heroes, favorites)
+
   return (
     <section className={`${styles.heroList}`}>
-      {heroes.map((hero) =>  {
-        let isFavorite = false
-        
-        if(isHeroInFavorites(favorites, hero)) {
-          isFavorite = true
-        }
-
-        const favoriteHero = { ...hero, isFavorite}
-  
-        return <HeroCard key={favoriteHero.id} hero={favoriteHero} />
+      {newHeroes.map((hero) => {
+        return <HeroCard key={hero.id} hero={hero} />
       })}
     </section>
   )
-}
-
-function isHeroInFavorites(favorites: Hero[], hero: Hero) {
-  return favorites.some((favorite) => {
-    return favorite.id === hero.id
-  })
 }

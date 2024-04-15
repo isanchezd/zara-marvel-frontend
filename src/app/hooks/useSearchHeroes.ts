@@ -13,7 +13,7 @@ export default function useSearchHeroes() {
         const fetchHeroes = async () => {
             try {
                 const data = await heroRepository.getHeroes(search)
-                setHeroes(data);
+                setHeroes([...data]);
             } catch (error) {
                 console.error('Failed to fetch heroes:', error);
             } finally {
@@ -27,6 +27,5 @@ export default function useSearchHeroes() {
 
     return { heroes, search, setSearch, isLoading };
 };
-
 
 
